@@ -12,16 +12,12 @@ public class Session {
 	private ArrayList<String> notes;
 	private ArrayList<LocalDateTime> notesTimestamps;
 	
-	private Project project;
-	
-	public Session( Project project ) {
+	public Session() {
 		
 		start = LocalDateTime.now();
 		
 		notes = new ArrayList<String>();
 		notesTimestamps = new ArrayList<LocalDateTime>();
-		
-		this.project = project;
 	}
 	
 	public void addNote( String note ) {
