@@ -57,37 +57,20 @@ public class ProjectManager {
 		
 	}
 	
-	public void addNote( Session session, String note ) throws IllegalArgumentException {
+	public void addNote( Session session, String note ) throws IllegalArgumentException, IllegalStateException {
 		
 		validate( session );
 		
-		if ( active.contains( session ) ) {
-			
-			session.addNote(note);
-			
-		} else {
-			
-			throw new IllegalArgumentException( "Session isn't active." );
-			
-		}
+		session.addNote( note );  // Errors checked in session
 		
 		
 	}
 	
-	public void finish( Session session ) {
+	public void finish( Session session ) throws IllegalArgumentException, IllegalStateException {
 		
 		validate( session );
 		
-		if ( active.contains( session ) ) {
-			
-			active.remove( session );
-			session.finish();
-			
-		} else {
-			
-			throw new IllegalArgumentException( "Session isn't active." );
-			
-		}
+		session.finish();  // Errors checked in session
 		
 	}
 	
