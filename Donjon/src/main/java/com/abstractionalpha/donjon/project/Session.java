@@ -33,7 +33,7 @@ public class Session {
 		
 	}
 	
-	public long elapsed() { return Duration.between(start, end).toMinutes() }
+	public long elapsed() { return Duration.between(start, end).toMinutes(); }
 	
 	// TODO implement later
 	// public Object toXml() { return null; }
