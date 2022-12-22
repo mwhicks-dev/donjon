@@ -21,12 +21,16 @@ public class Session {
 		notesTimestamps = new ArrayList<LocalDateTime>();
 	}
 	
-	public void addNote( String note ) throws IllegalStateException {
+	public void addNote( String note ) throws IllegalArgumentException, IllegalStateException {
 		
 		if ( end == null ) {
 			
 			notes.add( note );
 			notesTimestamps.add( LocalDateTime.now() );
+			
+		} else if ( note.length() == 0 ) {
+			
+			throw new IllegalArgumentException( "Cannot add empty note to session." );
 			
 		} else {
 			
