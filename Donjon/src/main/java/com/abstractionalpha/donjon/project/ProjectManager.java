@@ -1,19 +1,20 @@
 package com.abstractionalpha.donjon.project;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 
 public class ProjectManager {
 	
-	private ArrayList<Project> projects;
-	
-	private ArrayList<Session> active;
+	private HashMap<String, Project> projects;
+	private HashSet<Session> active;
 	
 	private static ProjectManager singleton;
 	
 	private ProjectManager() {
 		
-		projects = new ArrayList<Project>();
-		active = new ArrayList<Session>();
+		projects = new HashMap<String, Project>();
+		active = new HashSet<Session>();
 		
 		singleton = this;
 		
@@ -23,7 +24,7 @@ public class ProjectManager {
 		
 		if ( getProject( name ) == null ) {
 		
-			projects.add( new Project( name ) );
+			projects.put( name, new Project( name ) );
 			
 		} else {
 			
@@ -52,9 +53,7 @@ public class ProjectManager {
 	
 	private Project getProject( String name ) {
 		
-		for ( Project p : projects ) { if ( p.getName().equals( name ) )  return p; }
-		
-		return null;
+		return projects.get( name );
 		
 	}
 	
@@ -63,6 +62,7 @@ public class ProjectManager {
 		validate( session );
 		
 		session.addNote( note );
+		
 		
 	}
 	
