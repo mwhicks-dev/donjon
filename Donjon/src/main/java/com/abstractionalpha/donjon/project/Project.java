@@ -8,15 +8,24 @@ public class Project {
 	
 	private ArrayList<Session> sessions;
 	
-	public Project( String name ) {}
+	public Project( String name ) {
+		
+		this.name = name;
+		sessions = new ArrayList<Session>();
+		
+	}
 	
-	public String getName() { return null; }
+	public String getName() { return name; }
 	
-	public void addSession( Session session ) {}
+	public void addSession( Session session ) {
+		
+		sessions.add( session );
+		
+	}
 	
-	protected void finish( Session session ) {}
+	protected void finish( Session session ) { session.finish(); }
 	
-	protected ArrayList<Session> getSessions() { return null; }
+	protected ArrayList<Session> getSessions() { return sessions; }
 	
 	// TODO implement later
 	// public Object toXml() { return null; }
