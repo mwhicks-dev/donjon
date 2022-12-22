@@ -15,25 +15,54 @@ public class Session {
 	public Session() {
 		
 		start = LocalDateTime.now();
+		end = null;
 		
 		notes = new ArrayList<String>();
 		notesTimestamps = new ArrayList<LocalDateTime>();
 	}
 	
-	public void addNote( String note ) {
+	public void addNote( String note ) throws IllegalStateException {
 		
-		notes.add( note );
-		notesTimestamps.add( LocalDateTime.now() );
+		if ( end == null ) {
+			
+			notes.add( note );
+			notesTimestamps.add( LocalDateTime.now() );
+			
+		} else {
+			
+			throw new IllegalStateException( "Session is finished." );
+			
+		}
 		
 	}
 	
-	public void finish() {
+	public void finish() throws IllegalStateException {
 		
-		end = LocalDateTime.now();
+		if ( end == null ) {
+			
+			end = LocalDateTime.now();
+			
+		} else {
+		
+			throw new IllegalStateException( "Session is already finished." );
+		
+		}
 		
 	}
 	
-	public long elapsed() { return Duration.between(start, end).toMinutes(); }
+	public long elapsed() throws IllegalStateException {
+		
+		if ( end == null ) {
+			
+			throw new IllegalStateException( "Session has not yet finished." );
+			
+		} else {
+			
+			return Duration.between( start, end ).toMinutes();
+			
+		}
+		
+	}
 	
 	// TODO implement later
 	// public Object toXml() { return null; }
