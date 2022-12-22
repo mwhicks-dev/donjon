@@ -50,7 +50,17 @@ public class ProjectManager {
 		
 	}
 	
-	private Project getProject( String name ) {
+	private Project getProject( String name ) throws IllegalArgumentException {
+		
+		if ( name == null ) {
+			
+			throw new IllegalArgumentException( "Project name cannot be null." );
+			
+		} else if ( name.length() == 0 ) {
+			
+			throw new IllegalArgumentException( "Project name cannot be blank." );
+			
+		}
 		
 		return projects.get( name );
 		
