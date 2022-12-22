@@ -23,8 +23,6 @@ public class Project {
 		
 	}
 	
-	protected void finish( Session session ) { session.finish(); }
-	
 	protected ArrayList<Session> getSessions() { return sessions; }
 	
 	// TODO implement later
