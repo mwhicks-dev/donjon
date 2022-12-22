@@ -4,7 +4,7 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
-public class Session implements Cloneable {
+public class Session {
 
 	private LocalDateTime start;
 	private LocalDateTime end;
@@ -38,8 +38,6 @@ public class Session implements Cloneable {
 	}
 	
 	public int elapsed() { return Duration.between(start, end).toMinutes() }
-	
-	public Object clone() { return null; }
 	
 	// TODO implement later
 	// public Object toXml() { return null; }
