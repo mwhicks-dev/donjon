@@ -61,7 +61,15 @@ public class ProjectManager {
 		
 		validate( session );
 		
-		session.addNote( note );
+		if ( active.contains( session ) ) {
+			
+			session.addNote(note);
+			
+		} else {
+			
+			throw new IllegalArgumentException( "Session isn't active." );
+			
+		}
 		
 		
 	}
