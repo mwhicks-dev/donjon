@@ -58,7 +58,7 @@ public class ProjectManager {
 		
 	}
 	
-	public void addNote( Session session ) throws IllegalArgumentException {
+	public void addNote( Session session, String note ) throws IllegalArgumentException {
 		
 		validate( session );
 		
