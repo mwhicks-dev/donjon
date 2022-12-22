@@ -28,6 +28,10 @@ public class Session {
 			notes.add( note );
 			notesTimestamps.add( LocalDateTime.now() );
 			
+		} else if ( note == null ) {
+			
+			throw new IllegalArgumentException( "Cannot add null note to session." );
+			
 		} else if ( note.length() == 0 ) {
 			
 			throw new IllegalArgumentException( "Cannot add empty note to session." );
